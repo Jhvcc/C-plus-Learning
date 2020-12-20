@@ -5,7 +5,10 @@
             "command": "g++",
             "args": [
                 "-g",
-                "${file}",
+                "${workspaceFolder}\\C++\\Sources\\queue.cpp", "${workspaceFolder}\\C++\\main.cpp",
+                // "${file}",
+                "-I",
+                "--std=c11",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}.exe"
             ],
