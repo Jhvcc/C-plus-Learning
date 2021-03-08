@@ -17,19 +17,25 @@ std::vector<int> Sorted::copy(std::vector<int> &numbers) {
     return numbers_copy;
 }
 
+void Sorted::exch(std::vector<int> &numbers, int a, int b) {
+    int flag = numbers[a];
+    numbers[a] = numbers[b];
+    numbers[b] = flag;
+}
+
+bool Sorted::less(int a, int b) {
+    return a < b;
+}
+
 std::vector<int> Sorted::selection_sort(std::vector<int> numbers) {
-    for (int i = 0; i < numbers.size()-1; i++) {
+    for (int i = 0; this->less(i, numbers.size()-1); i++) {
         int min = i;
-        for (int j = i+1; j < numbers.size(); j++) {
-            if (numbers[j] < numbers[min]) {
+        for (int j = i+1; this->less(j, numbers.size()); j++) {
+            if (this->less(numbers[j], numbers[min])) {
                 min = j;
             }
         }
-        if (min != i) {
-            int flag = numbers[i];
-            numbers[i] = numbers[min];
-            numbers[min] = flag;
-        }
+        if (min != i) this->exch(numbers, i, min);
         std::cout << "第" << i << "次排序: " << numbers << std::endl;
     }
     return numbers;
@@ -114,19 +120,16 @@ std::vector<int> Sorted::merge_sort(std::vector<int> numbers) {
 }
 
 int Sorted::quick_partition(std::vector<int> &numbers, int lo, int hi) {
-    int i = lo;
-    int j = hi;
-    while (i != j) {
-        if (numbers[i] > numbers[j]) {
-            int flag = numbers[i];
-            numbers[i] = numbers[j];
-            numbers[j] = flag;
-            i++;
-        } else {
-            j--;
-        }
+    int i = lo, j = hi + 1;
+    int flag = numbers[lo];
+    while (1) {
+        while (this->less(numbers[++i], flag)) if (i == hi) break;
+        while (this->less(flag, numbers[--j])) if (j == lo) break;
+        if (i >= j) break;
+        this->exch(numbers, i, j);
     }
-    return i;
+    this->exch(numbers, lo, j);
+    return j;
 }
 
 void Sorted::quick_sort(std::vector<int> &numbers, int lo, int hi) {

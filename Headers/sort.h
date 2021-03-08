@@ -10,6 +10,7 @@ class Sorted {
 private:
     std::vector<int> copy(std::vector<int> &numbers);
     void exch(std::vector<int> &numbers, int a, int b);
+    bool less(int a, int b);
     void merge_sort(std::vector<int> &a, int lo, int mid, int hi);
     void merge_sort(std::vector<int> &numbers, int lo, int hi);
     int quick_partition(std::vector<int> &numbers, int lo, int hi);
