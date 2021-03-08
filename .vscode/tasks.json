@@ -5,13 +5,17 @@
             "command": "g++",
             "args": [
                 "-g",
-                "${workspaceFolder}\\C++\\Sources\\queue.cpp", "${workspaceFolder}\\C++\\main.cpp",
                 // "${file}",
-                "-I",
-                "--std=c11",
+                "${workspaceRoot}/main.cpp", "${workspaceRoot}/Sources/sort.cpp",
+                // "-I",
+                "-std=c++11",
+                "-fexec-charset=GBK",
                 "-o",
-                "${fileDirname}/${fileBasenameNoExtension}.exe"
+                "${workspaceRoot}/${fileBasenameNoExtension}.exe"
             ],
+            "options": {
+                "cwd": "E:\\Program Files\\TDM-GCC-64\\bin"
+            },
             "problemMatcher": {
                 "owner": "cpp",
                 "fileLocation": [
