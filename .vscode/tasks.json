@@ -6,7 +6,8 @@
             "args": [
                 "-g",
                 // "${file}",
-                "${workspaceRoot}/main.cpp", "${workspaceRoot}/Sources/sort.cpp",
+                "${workspaceRoot}/main.cpp", "${workspaceRoot}/Sources/sort.cpp", "${workspaceRoot}/Sources/find.cpp",
+                "${workspaceRoot}/Sources/tree.cpp",
                 // "-I",
                 "-std=c++11",
                 "-fexec-charset=GBK",
