@@ -35,7 +35,9 @@
         "numeric": "cpp",
         "sstream": "cpp",
         "utility": "cpp",
-        "string": "cpp"
+        "string": "cpp",
+        "hash_map": "cpp",
+        "map": "cpp"
     },
     "code-runner.executorMap": {
         "javascript": "node",
